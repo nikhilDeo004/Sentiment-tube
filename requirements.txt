@@ -1,0 +1,9 @@
+tensorflow
+streamlit
+pandas
+torch
+matplotlib
+google-api-python-client
+transformers
+wordcloud
+tf-keras
