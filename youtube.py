@@ -67,7 +67,12 @@ class Youtube:
             eventType = 'completed'
         ).execute()
 
-        video_ids = [item['id']['videoId'] for item in search_response['items']]
+        video_ids = [
+                        item['id']['videoId']
+                        for item in search_response.get('items', [])
+                        if item.get('id', {}).get('kind') == 'youtube#video' and 'videoId' in item['id']
+                    ]
+
         return video_ids
 
     def get_video_details(self, api_service, video_id):
